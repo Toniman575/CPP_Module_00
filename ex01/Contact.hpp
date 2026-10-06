@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 11:43:43 by asadik            #+#    #+#             */
-/*   Updated: 2026/10/05 12:31:44 by asadik           ###   ########.fr       */
+/*   Updated: 2026/10/06 17:34:20 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,25 @@ class Contact {
 	std::string FirstName;
 	std::string LastName;
 	std::string NickName;
-	void setNumber(int number);
-	void setSecret(std::string secret);
+
+	Contact()
+	{
+		FirstName = "";
+		LastName = "";
+		NickName = "";
+		Number = "";
+		Secret = "";
+	}
+	Contact(std::string first_name, std::string last_name,
+			std::string nick_name, std::string number, std::string secret) {
+		FirstName = first_name;
+		LastName = last_name;
+		NickName = nick_name;
+		Number = number;
+		Secret = secret;
+	}
 
   private:
-	int Number;
+	std::string Number;
 	std::string Secret;
 };

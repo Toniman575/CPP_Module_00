@@ -23,7 +23,7 @@ fclean: clean
 re: fclean all
 
 debug: fclean
-	$(MAKE) all CFLAGS="$(CFLAGS) -g"
+	$(MAKE) all CFLAGS="$(CFLAGS) -g -fno-limit-debug-info"
 
 .PHONY: all clean fclean re debug
 
