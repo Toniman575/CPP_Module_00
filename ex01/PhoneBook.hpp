@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 11:43:46 by asadik            #+#    #+#             */
-/*   Updated: 2026/10/07 15:40:34 by asadik           ###   ########.fr       */
+/*   Updated: 2026/10/07 18:54:58 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define PHONEBOOK_H
 
 #include "Contact.hpp"
-#include <iostream>
 
 class PhoneBook {
   public:
@@ -22,7 +21,7 @@ class PhoneBook {
 	unsigned int contact_n;
 
 	PhoneBook();
-	void add(Contact new_contact);
+	void add();
 	void display_contacts();
 };
 

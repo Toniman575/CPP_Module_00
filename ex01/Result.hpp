@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Result.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asadik <asadik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 11:43:43 by asadik            #+#    #+#             */
-/*   Updated: 2026/10/07 18:15:57 by asadik           ###   ########.fr       */
+/*   Created: 2026/10/07 18:02:09 by asadik            #+#    #+#             */
+/*   Updated: 2026/10/07 18:36:26 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-#define CONTACT_H
+#ifndef RESULT_H
+#define RESULT_H
 
-#include "Result.hpp"
 #include <string>
 
-class Contact {
-  private:
-	std::string FirstName;
-	std::string LastName;
-	std::string NickName;
-	std::string Number;
-	std::string Secret;
+enum ResultType {
+	ERROR,
+	OK,
+};
 
-  public:
-	Contact();
-	Result set_first_name(std::string input);
-	Result set_last_name(std::string input);
-	Result set_nick_name(std::string input);
-	Result set_phone_number(std::string input);
-	Result set_secret(std::string input);
+struct Result {
+	ResultType type;
+	std::string error;
 };
 
 #endif
