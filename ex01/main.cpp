@@ -6,11 +6,12 @@
 /*   By: asadik <asadik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 11:06:25 by asadik            #+#    #+#             */
-/*   Updated: 2026/10/06 18:54:36 by asadik           ###   ########.fr       */
+/*   Updated: 2026/10/07 15:48:49 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "PhoneBook.cpp"
+#include "Contact.cpp"
 #include <iostream>
 
 static void new_contact_info(PhoneBook *phonebook) {
