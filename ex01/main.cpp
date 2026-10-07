@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 11:06:25 by asadik            #+#    #+#             */
-/*   Updated: 2026/10/07 19:14:45 by asadik           ###   ########.fr       */
+/*   Updated: 2026/10/07 22:17:07 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "PhoneBook.cpp"
 #include <cctype>
 #include <iostream>
+#include <string>
 
 int main(void) {
 	std::string input;
@@ -23,7 +24,7 @@ int main(void) {
 		std::cout << "Please input one of the following commands:\n\nADD - add "
 					 "a Contact to the Phonebook\nSEARCH - Display saved "
 					 "contacts\nEXIT - Quit Program\n";
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (input.compare("EXIT") == 0)
 			break;
 		else if (input.compare("ADD") == 0) {
