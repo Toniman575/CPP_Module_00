@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 15:32:59 by asadik            #+#    #+#             */
-/*   Updated: 2026/10/07 19:26:27 by asadik           ###   ########.fr       */
+/*   Updated: 2026/10/08 14:02:17 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 PhoneBook::PhoneBook() { contact_n = 0; }
 
-static void force_valid_input(Contact &contact,
+static bool force_valid_input(Contact &contact,
 							  Result (Contact::*func)(std::string)) {
 
 	Result result;
@@ -28,29 +28,36 @@ static void force_valid_input(Contact &contact,
 			std::cout << "Failed to add field with error: " << result.error
 					  << "\nPlease try again.\n";
 		else
-			break;
+			return true;
 	}
+	return false;
 }
 
-void PhoneBook::add() {
+bool PhoneBook::add() {
 	Contact contact = this->contacts[contact_n % 8];
 
 	std::cout << "Please input the First Name(only Alphabetical Characters "
 				 "allowed):\n";
-	force_valid_input(contact, &Contact::set_first_name);
+	if (!force_valid_input(contact, &Contact::set_first_name))
+		return false;
 	std::cout << "Please input the Last Name(only Alphabetical Characters "
 				 "allowed):\n";
-	force_valid_input(contact, &Contact::set_last_name);
+	if (!force_valid_input(contact, &Contact::set_last_name))
+		return false;
 	std::cout << "Please input the Nickname(only Alphabetical Characters "
 				 "allowed):\n";
-	force_valid_input(contact, &Contact::set_nick_name);
+	if (!force_valid_input(contact, &Contact::set_nick_name))
+		return false;
 	std::cout
 		<< "Please input the Phonenumber(only Numerical Characters allowed):\n";
-	force_valid_input(contact, &Contact::set_phone_number);
+	if (!force_valid_input(contact, &Contact::set_phone_number))
+		return false;
 	std::cout << "Please input the Secret(only AlphaNumerical Characters "
 				 "allowed):\n";
-	force_valid_input(contact, &Contact::set_secret);
+	if (!force_valid_input(contact, &Contact::set_secret))
+		return false;
 	contact_n++;
+	return true;
 }
 
 void PhoneBook::display_contacts() {

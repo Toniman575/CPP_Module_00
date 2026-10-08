@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 11:43:46 by asadik            #+#    #+#             */
-/*   Updated: 2026/10/07 18:54:58 by asadik           ###   ########.fr       */
+/*   Updated: 2026/10/08 14:00:01 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class PhoneBook {
 	unsigned int contact_n;
 
 	PhoneBook();
-	void add();
+	bool add();
 	void display_contacts();
 };
 
