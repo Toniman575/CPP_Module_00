@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 15:32:59 by asadik            #+#    #+#             */
-/*   Updated: 2026/10/08 14:02:17 by asadik           ###   ########.fr       */
+/*   Updated: 2026/10/08 14:34:34 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,14 @@ bool PhoneBook::add() {
 
 void PhoneBook::display_contacts() {
 	int end;
+
 	if (contact_n < 7)
 		end = contact_n;
 	else
 		end = 7;
+	for (int index = 0; index < end; index++) {
+		std::cout << index << '|' << contacts[index].get_first_name() << '|'
+				  << contacts[index].get_last_name() << '|'
+				  << contacts[index].get_nick_name() << '\n';
+	}
 }

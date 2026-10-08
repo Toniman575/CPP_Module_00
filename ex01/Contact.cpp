@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 15:32:40 by asadik            #+#    #+#             */
-/*   Updated: 2026/10/07 22:11:44 by asadik           ###   ########.fr       */
+/*   Updated: 2026/10/08 14:48:04 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,3 +107,13 @@ Result Contact::set_secret(std::string input) {
 		Secret = input;
 	return result;
 }
+
+std::string Contact::get_first_name() { return FirstName; }
+
+std::string Contact::get_last_name() { return LastName; }
+
+std::string Contact::get_nick_name() { return NickName; }
+
+std::string Contact::get_phone_number() { return Number; }
+
+std::string Contact::get_secret() { return Secret; }
