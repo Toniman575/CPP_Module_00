@@ -6,12 +6,11 @@
 /*   By: asadik <asadik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 11:06:25 by asadik            #+#    #+#             */
-/*   Updated: 2026/10/08 14:02:51 by asadik           ###   ########.fr       */
+/*   Updated: 2026/10/08 19:51:01 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.cpp"
-#include "PhoneBook.cpp"
+#include "PhoneBook.hpp"
 #include <cctype>
 #include <iostream>
 #include <string>
@@ -21,7 +20,7 @@ int main(void) {
 	PhoneBook phonebook;
 
 	while (1) {
-		std::cout << "Please input one of the following commands:\n\nADD - add "
+		std::cout << "Please input one of the following commands:\n\nADD - Add "
 					 "a Contact to the Phonebook\nSEARCH - Display saved "
 					 "contacts\nEXIT - Quit Program\n";
 		if (!std::getline(std::cin, input))
@@ -32,8 +31,10 @@ int main(void) {
 			if (!phonebook.add())
 				return 0;
 		} else if (input.compare("SEARCH") == 0) {
-			phonebook.display_contacts();
-			//  phonebook.search_contact();
+			std::cout << phonebook;
+			if (phonebook.contact_n > 0)
+				if (!phonebook.search_contact())
+					return 0;
 		} else {
 			std::cout << "Please input a valid command!\n";
 		}

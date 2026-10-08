@@ -1,5 +1,5 @@
 NAME =		phonebook
-SRCS =		main.cpp
+SRCS =		main.cpp Contact.cpp PhoneBook.cpp utils.cpp
 OBJS =		$(SRCS:.cpp=.o)
 DEPS =		$(OBJS:.o=.d)
 
@@ -11,8 +11,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CPP) $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJS): $(SRCS)
-	$(CPP) $(CFLAGS) -c $(SRCS) -o $(OBJS)
+%.o: %.cpp
+	$(CPP) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS) $(DEPS)
