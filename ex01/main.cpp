@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 11:06:25 by asadik            #+#    #+#             */
-/*   Updated: 2026/10/08 19:51:01 by asadik           ###   ########.fr       */
+/*   Updated: 2026/10/12 15:45:59 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main(void) {
 				return 0;
 		} else if (input.compare("SEARCH") == 0) {
 			std::cout << phonebook;
-			if (phonebook.contact_n > 0)
+			if (phonebook.get_contact_n() > 0)
 				if (!phonebook.search_contact())
 					return 0;
 		} else {

@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 15:32:59 by asadik            #+#    #+#             */
-/*   Updated: 2026/10/08 20:00:10 by asadik           ###   ########.fr       */
+/*   Updated: 2026/10/12 15:47:03 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 #include <string>
 
 PhoneBook::PhoneBook() { contact_n = 0; }
+
+int PhoneBook::get_contact_n() const { return contact_n; }
+
+Contact PhoneBook::get_contact(int index) const { return contacts[index]; }
 
 static bool force_valid_input(Contact &contact,
 							  Result (Contact::*func)(std::string)) {
@@ -64,6 +68,7 @@ bool PhoneBook::add() {
 	if (!force_valid_input(this->contacts[index], &Contact::set_secret))
 		return false;
 
+	std::cout << "Added new Contact!\n\n";
 	contact_n++;
 	return true;
 }
@@ -123,15 +128,16 @@ static std::string fmt(const std::string input) {
 std::ostream &operator<<(std::ostream &os, const PhoneBook &pb) {
 	int end;
 
-	if (pb.contact_n < 8)
-		end = pb.contact_n;
+	if (pb.get_contact_n() < 8)
+		end = pb.get_contact_n();
 	else
 		end = 8;
 	for (int index = 0; index < end; index++) {
 		os << std::right << std::setw(10) << index + 1 << '|' << std::setw(10)
-		   << fmt(pb.contacts[index].get_first_name()) << '|' << std::setw(10)
-		   << fmt(pb.contacts[index].get_last_name()) << '|' << std::setw(10)
-		   << fmt(pb.contacts[index].get_nick_name()) << '\n';
+		   << fmt(pb.get_contact(index).get_first_name()) << '|'
+		   << std::setw(10) << fmt(pb.get_contact(index).get_last_name()) << '|'
+		   << std::setw(10) << fmt(pb.get_contact(index).get_nick_name())
+		   << '\n';
 	}
 	os << "\n";
 	return os;
